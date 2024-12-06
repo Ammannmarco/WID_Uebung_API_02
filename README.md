@@ -1,44 +1,81 @@
-# React Vorlage für Modul 3050 WID
+# Koordinatentransformation mit eigener Lokalen API
 
-- "template repository" mit Startercode für _React_ **SPA** (_Single Page App_) Projekte
-- basiert auf [_Vite+React+JS_](https://vite.dev/guide/) Vorlage
-- die ursprüngliche Vorlage wurde auf das Minimum reduziert
+Mithilfe der WebApp kann eine Transformation von Koordinaten gerechnet werden.
 
-## Verwendung
+## Getting Started
 
-### 1.Forken
+1. Repository klonen:
 
-- dieses Repo forken (eine Kopie wird in dem persönlichem GitHub Konto angelegt)
+   ```
+   git clone
+   ```
 
-<img src="public/image.png" width=200/>
+   Alternativ kann auch mithilfe des Github-Desktop das Repository geklont werden
 
-### 2. Neues Repository erstellen
+2. benötigte Programme:
 
-- für neuen Projekte einfach die "Use this template" Funktion von GitHub verwenden:
-  ![alt text](public/image-1.png)
+   - node.js
+   - anaconda
+   - VSCode
 
-### 3. Installieren
+### API
 
-1. Neues Projekt Repository in ein gewünschtes lokate Verzeichnis klonen:
+1. Erstellung eines Anaconda-Enviorment (falls nicht schon vorhanden)
 
-```sh
-git clone <repo-url>
-```
+   ```
+   conda create -n webapi python=3.12 -c conda-forge
+   ```
 
-2. In der Projektordner wechseln:
+2. Installation der benötigten Module:
 
-```sh
-cd <repo-name>
-```
+   ```
+   pip install fastapi[standard]
+   ```
 
-3. `npm` Abhängigkeiten installieren:
+   ```
+   pip install pyproj
+   ```
 
-```sh
-npm install
-```
+3. API-Server starten:
 
-4. dev-Server starten:
+   In der anaconda-Promt mit Enviorment aktivieren und zum Odner der API (Unterordner "api") navigieren
 
-```sh
-npm run dev
-```
+   ```
+   conda activate webapi
+   ```
+
+   zum Pfad der Dateien navigieren
+
+   ```
+   cd "Pfad bis und mit Ordner api"
+   ```
+
+   Server starten
+
+   ```
+   fastapi dev api.py
+   ```
+
+   Anaconda-Prompt offen lassen
+
+### Frontend-Server
+
+1. Im Terminal im VS-Code Module installieren:
+
+   ```
+   npm install
+   ```
+
+2. Webserver starten
+
+   ```
+   npm run dev
+   ```
+
+3. Auf den angezeigten localhost-Link klicken und die Webseite öffnen
+
+## Funktionsweise
+
+Mithilfe des gewählten Transformators können Koordinaten aus den Inputfelder auf Knopfdruck in ein anderes Koordinatensystem gewechselt werden.
+
+Die Transformation funktioniert auf Basis der eigner API im `api`-Ordner
